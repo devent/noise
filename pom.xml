@@ -96,6 +96,7 @@
 	</build>
 	<modules>
 		<module>noise-api</module>
+		<module>noise-native</module>
 	</modules>
 
 </project>
