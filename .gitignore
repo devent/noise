@@ -1,0 +1,10 @@
+.project
+.settings/
+.classpath
+target/
+test-output/
+*~
+*~?
+*~??
+*.class
+*.log
