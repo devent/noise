@@ -94,5 +94,8 @@
 
 		</plugins>
 	</build>
+	<modules>
+		<module>noise-api</module>
+	</modules>
 
 </project>
