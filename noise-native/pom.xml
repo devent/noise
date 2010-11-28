@@ -22,12 +22,18 @@
   	<dependency>
   		<groupId>com.globalscalingsoftware.rsscon</groupId>
   		<artifactId>rssconjava-api</artifactId>
-  		<version>1.0</version>
+  		<version>1.1</version>
   	</dependency>
   	<dependency>
   		<groupId>com.google.inject.extensions</groupId>
   		<artifactId>guice-assisted-inject</artifactId>
   		<version>2.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.globalscalingsoftware.rsscon</groupId>
+  		<artifactId>rssconjava-impl</artifactId>
+  		<version>1.1</version>
+  		<scope>test</scope>
   	</dependency>
   </dependencies>
 </project>
