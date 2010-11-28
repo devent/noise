@@ -3,9 +3,9 @@
   <parent>
     <artifactId>noise</artifactId>
     <groupId>com.globalscalingsoftware.noise</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <groupId>com.globalscalingsoftware.noise</groupId>
   <artifactId>noise-api</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
 </project>
