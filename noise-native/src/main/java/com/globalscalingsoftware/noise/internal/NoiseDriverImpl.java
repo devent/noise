@@ -79,7 +79,7 @@ public class NoiseDriverImpl implements NoiseDriver {
 	@Override
 	public synchronized void init() throws IOException {
 		throwIfRunning();
-		retrieveDeviceInfo();
+		// retrieveDeviceInfo();
 	}
 
 	private void throwIfRunning() throws IOException {
