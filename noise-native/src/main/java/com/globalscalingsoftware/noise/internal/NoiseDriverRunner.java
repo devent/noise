@@ -12,11 +12,12 @@ import com.globalscalingsoftware.rsscon.RssconDriver;
 
 class NoiseDriverRunner {
 
-	public void readNoiseData(NoiseDriverImpl driver, RssconDriver rssconDriver,
+	public void readNoiseData(NoiseDriverImpl driver,
+			RssconDriver rssconDriver,
 			Iterable<NoiseDataListener> noiseDataListeners) throws IOException {
 		String line = readLine(rssconDriver);
-		if (!line.startsWith("+")) {
-			return;
+		while (!line.startsWith("+")) {
+			line = readLine(rssconDriver);
 		}
 
 		NoiseDataImpl noiseData = parseLine(line, driver);
