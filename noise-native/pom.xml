@@ -3,11 +3,11 @@
   <parent>
     <artifactId>noise</artifactId>
     <groupId>com.globalscalingsoftware.noise</groupId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
   <groupId>com.globalscalingsoftware.noise</groupId>
   <artifactId>noise-native</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <dependencies>
   	<dependency>
   		<groupId>com.google.inject</groupId>
@@ -17,7 +17,7 @@
   	<dependency>
   		<groupId>com.globalscalingsoftware.noise</groupId>
   		<artifactId>noise-api</artifactId>
-  		<version>1.0</version>
+  		<version>1.0.1</version>
   	</dependency>
   	<dependency>
   		<groupId>com.globalscalingsoftware.rsscon</groupId>
