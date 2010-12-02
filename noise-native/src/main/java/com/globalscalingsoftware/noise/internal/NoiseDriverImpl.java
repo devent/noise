@@ -243,6 +243,12 @@ public class NoiseDriverImpl implements NoiseDriver {
 	public synchronized void start() throws IOException {
 		throwIfRunning();
 		sendStartCommand();
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		running = true;
 	}
 

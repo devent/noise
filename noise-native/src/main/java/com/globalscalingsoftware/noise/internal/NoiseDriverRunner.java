@@ -26,8 +26,8 @@ class NoiseDriverRunner {
 
 	private String readLine(RssconDriver rssconDriver) throws IOException {
 		StringBuilder builder = new StringBuilder();
+		byte[] buffer = new byte[1];
 		while (true) {
-			byte[] buffer = new byte[1];
 			rssconDriver.read(buffer);
 			String str = new String(buffer);
 			builder.append(str);

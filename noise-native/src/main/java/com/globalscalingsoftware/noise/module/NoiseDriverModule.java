@@ -6,7 +6,7 @@ import com.globalscalingsoftware.noise.NoiseDriverService;
 import com.globalscalingsoftware.noise.internal.NoiseDriverImpl;
 import com.google.inject.AbstractModule;
 
-public class DriverModule extends AbstractModule {
+public class NoiseDriverModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
