@@ -5,6 +5,7 @@ import static java.lang.String.format;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import com.globalscalingsoftware.noise.NoiseDataEvent;
 import com.globalscalingsoftware.noise.NoiseDataListener;
@@ -12,11 +13,14 @@ import com.globalscalingsoftware.rsscon.RssconDriver;
 
 class NoiseDriverRunner {
 
+	private static Pattern LINE_REXEX = Pattern
+			.compile("(\\+\\d{5})((\\s+[+-]\\d{5}){8})\\s+");
+
 	public void readNoiseData(NoiseDriverImpl driver,
 			RssconDriver rssconDriver,
 			Iterable<NoiseDataListener> noiseDataListeners) throws IOException {
 		String line = readLine(rssconDriver);
-		while (!line.startsWith("+")) {
+		while (!LINE_REXEX.matcher(line).matches()) {
 			line = readLine(rssconDriver);
 		}
 
