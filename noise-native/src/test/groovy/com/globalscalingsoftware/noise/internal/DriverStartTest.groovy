@@ -56,7 +56,7 @@ class DriverStartTest extends AbstractDriverTest {
 		driver.stop()
 	}
 	
-	@Test(expected=IOException)
+	@Test(expected=IOException.class)
 	void testSetSensorBanksMeasurementSourceWhileReadNoiseData() {
 		driver.init()
 		driver.start()

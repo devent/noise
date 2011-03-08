@@ -4,7 +4,7 @@
 
 	<groupId>com.globalscalingsoftware.noise</groupId>
 	<artifactId>noise</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -20,6 +20,11 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${project.build.groovy.version}</version>
+        </dependency>
 	</dependencies>
 
 	<distributionManagement>
