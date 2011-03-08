@@ -26,7 +26,7 @@ class DriverStartTest extends AbstractDriverTest {
 			}
 		}
 		
-		Thread.sleep 5000
+		Thread.sleep 1000
 		running = false
 		thread.join()
 		driver.stop()
