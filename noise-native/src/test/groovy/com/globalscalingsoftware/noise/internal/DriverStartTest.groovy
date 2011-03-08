@@ -2,7 +2,6 @@ package com.globalscalingsoftware.noise.internal
 
 
 import com.globalscalingsoftware.noise.NoiseDataListener 
-import java.io.IOException;
 import static com.globalscalingsoftware.noise.NoiseDiodePreoscillations.*;
 import static com.globalscalingsoftware.noise.SensorBanksMeasurementSource.*;
 import static com.globalscalingsoftware.noise.SensorSampleRate.*;
@@ -56,7 +55,7 @@ class DriverStartTest extends AbstractDriverTest {
 		driver.stop()
 	}
 	
-	@Test(expected=IOException.class)
+	@Test
 	void testSetSensorBanksMeasurementSourceWhileReadNoiseData() {
 		driver.init()
 		driver.start()
@@ -65,14 +64,22 @@ class DriverStartTest extends AbstractDriverTest {
 		def thread = new Thread().start {
 			while(running) {
 				driver.readNoiseData()
+				Thread.sleep 500
 			}
 		}
 		
-		driver.setSensorBanksMeasurementSource GMR_SIGNALS
+		def ioexception = false
+		try {
+			driver.setSensorBanksMeasurementSource GMR_SIGNALS
+		} catch (IOException e) {
+			ioexception = true
+		}
 		
 		Thread.sleep 5000
 		running = false
 		thread.join()
 		driver.stop()
+		
+		assert ioexception : "Expected IOException while changing the parameters on running device."
 	}
 }
