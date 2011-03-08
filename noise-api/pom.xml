@@ -7,5 +7,5 @@
   </parent>
   <groupId>com.globalscalingsoftware.noise</groupId>
   <artifactId>noise-api</artifactId>
-  <version>1.0.2.1</version>
+  <version>1.1-SNAPSHOT</version>
 </project>
