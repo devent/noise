@@ -1,9 +1,10 @@
 package com.globalscalingsoftware.noise.internal;
 
-import static java.lang.String.format;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.StandardToStringStyle;
 
 import com.globalscalingsoftware.noise.GPSData;
 import com.globalscalingsoftware.noise.NoiseData;
@@ -60,11 +61,9 @@ public class NoiseDataImpl implements NoiseData {
 
 	@Override
 	public String toString() {
-		StringBuilder datasString = new StringBuilder();
-		for (SensorData data : sensorDatas) {
-			datasString.append(format(" %s;", data.toString()));
-		}
-		return format("#%s -%s", serialNumber, datasString);
+		StandardToStringStyle style = new StandardToStringStyle();
+		style.setUseShortClassName(true);
+		return new ReflectionToStringBuilder(this, style).toString();
 	}
 
 }

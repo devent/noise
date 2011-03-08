@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.StandardToStringStyle;
+
 import com.globalscalingsoftware.noise.GPSData;
 import com.globalscalingsoftware.noise.GPSQualityIndication;
 import com.globalscalingsoftware.noise.LatitudeHemisphere;
@@ -121,4 +124,10 @@ public class GPSDataImpl implements GPSData {
 		return antennaHeight;
 	}
 
+	@Override
+	public String toString() {
+		StandardToStringStyle style = new StandardToStringStyle();
+		style.setUseShortClassName(true);
+		return new ReflectionToStringBuilder(this, style).toString();
+	}
 }

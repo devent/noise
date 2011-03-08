@@ -34,10 +34,7 @@ class DriverStartTest extends AbstractDriverTest {
 	
 	@Test
 	void testStartAndReadNoiseDataWithGPS() {
-		driver.addNoiseDataListener({ event ->  
-			println event.noiseData 
-			println event.noiseData.GPSData
-		} as NoiseDataListener)
+		driver.addNoiseDataListener({ event ->   println event.noiseData  } as NoiseDataListener)
 		driver.setGPSTracking true
 		driver.setNoiseDiodePreoscillations NONE
 		driver.setSensorBanksMeasurementSource GMR_SIGNALS
