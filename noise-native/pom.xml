@@ -7,7 +7,7 @@
   </parent>
   <groupId>com.globalscalingsoftware.noise</groupId>
   <artifactId>noise-native</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <dependencies>
   	<dependency>
   		<groupId>com.google.inject</groupId>
@@ -17,12 +17,12 @@
   	<dependency>
   		<groupId>com.globalscalingsoftware.noise</groupId>
   		<artifactId>noise-api</artifactId>
-  		<version>1.1-SNAPSHOT</version>
+  		<version>1.1</version>
   	</dependency>
   	<dependency>
   		<groupId>com.globalscalingsoftware.rsscon</groupId>
   		<artifactId>rssconjava-api</artifactId>
-  		<version>1.2-SNAPSHOT</version>
+  		<version>1.2</version>
   	</dependency>
   	<dependency>
   		<groupId>com.google.inject.extensions</groupId>
@@ -32,7 +32,7 @@
   	<dependency>
   		<groupId>com.globalscalingsoftware.rsscon</groupId>
   		<artifactId>rssconjava-impl</artifactId>
-  		<version>1.2-SNAPSHOT</version>
+  		<version>1.2</version>
   		<scope>test</scope>
   	</dependency>
   	<dependency>
