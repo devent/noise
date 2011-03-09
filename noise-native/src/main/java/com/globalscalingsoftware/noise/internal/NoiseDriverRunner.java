@@ -14,7 +14,7 @@ import com.globalscalingsoftware.rsscon.RssconDriver;
 class NoiseDriverRunner {
 
 	private static Pattern LINE_REXEX = Pattern
-			.compile("(\\+\\d{5})((\\s+[+-]\\d{5}){8}).*\\s+");
+			.compile("([+-]\\d{5})((\\s+[+-]\\d{5}){8}).*\\s+");
 
 	public void readNoiseData(NoiseDriverImpl driver,
 			RssconDriver rssconDriver,
