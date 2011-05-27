@@ -9,14 +9,25 @@ import java.util.Date;
 import com.globalscalingsoftware.noise.GPSQualityIndication;
 import com.globalscalingsoftware.noise.LatitudeHemisphere;
 import com.globalscalingsoftware.noise.LongitudeHemisphere;
+import com.globalscalingsoftware.noise.internal.LoggerFactory.Logger;
+import com.google.inject.Inject;
 
 class NoiseDriverRunnerGPS extends NoiseDriverRunner {
+
+	private final Logger log;
+
+	@Inject
+	NoiseDriverRunnerGPS(LoggerFactory loggerFactory) {
+		super(loggerFactory);
+		this.log = loggerFactory.create(NoiseDriverRunnerGPS.class);
+	}
 
 	@Override
 	protected GPSDataImpl parseGPSData(String line, NoiseDataImpl noiseData) {
 		String[] groups = splitGroups(line);
 		throwIfTheGroupsDoesNotContainGPS(groups);
 		GPSDataImpl gpsdata = parseGPSData(noiseData, groups);
+		log.readGPSData(gpsdata);
 		return gpsdata;
 	}
 

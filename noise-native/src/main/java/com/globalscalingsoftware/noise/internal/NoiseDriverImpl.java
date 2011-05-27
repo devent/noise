@@ -58,22 +58,29 @@ public class NoiseDriverImpl implements NoiseDriver {
 
 	private final LinkedList<NoiseDataListener> noiseDataListeners;
 
-	private NoiseDriverRunner driverRunner;
+	private final NoiseDriverRunnerFactory noiseDriverRunnerFactory;
 
 	private boolean running;
 
+	private final NoiseDriverRunnerGPSFactory noiseDriverRunnerGPSFactory;
+
+	private NoiseDriverRunner driverRunner;
+
 	@Inject
-	NoiseDriverImpl(RssconDriver rssconDriver, @Assisted String device) {
+	NoiseDriverImpl(RssconDriver rssconDriver,
+			NoiseDriverRunnerFactory noiseDriverRunnerFactory,
+			NoiseDriverRunnerGPSFactory noiseDriverRunnerGPSFactory,
+			@Assisted String device) {
 		this.rssconDriver = rssconDriver;
-		this.driverRunner = new NoiseDriverRunner();
+		this.noiseDriverRunnerFactory = noiseDriverRunnerFactory;
+		this.noiseDriverRunnerGPSFactory = noiseDriverRunnerGPSFactory;
 		this.device = device;
 		this.baudRate = BaudRate.BAUDRATE_921600;
 		this.deviceInfo = new ArrayList<DeviceInfoImpl>();
 		this.noiseDatas = new ArrayList<NoiseDataImpl>();
-
-		noiseDataListeners = new LinkedList<NoiseDataListener>();
-
-		running = false;
+		this.driverRunner = noiseDriverRunnerFactory.create();
+		this.noiseDataListeners = new LinkedList<NoiseDataListener>();
+		this.running = false;
 	}
 
 	@Override
@@ -195,10 +202,10 @@ public class NoiseDriverImpl implements NoiseDriver {
 	private void sendGPSTrackingCommand(boolean tracking) throws IOException {
 		rssconDriver.open(device, baudRate);
 		if (tracking) {
-			driverRunner = new NoiseDriverRunnerGPS();
+			driverRunner = noiseDriverRunnerGPSFactory.create();
 			writeCommand(GPS_TRACKING_ON_COMMAND);
 		} else {
-			driverRunner = new NoiseDriverRunner();
+			driverRunner = noiseDriverRunnerFactory.create();
 			writeCommand(GPS_TRACKING_OFF_COMMAND);
 		}
 	}

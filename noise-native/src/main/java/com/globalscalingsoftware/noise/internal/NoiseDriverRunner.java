@@ -9,19 +9,31 @@ import java.util.regex.Pattern;
 
 import com.globalscalingsoftware.noise.NoiseDataEvent;
 import com.globalscalingsoftware.noise.NoiseDataListener;
+import com.globalscalingsoftware.noise.internal.LoggerFactory.Logger;
 import com.globalscalingsoftware.rsscon.RssconDriver;
+import com.google.inject.Inject;
 
 class NoiseDriverRunner {
 
 	private static Pattern LINE_REXEX = Pattern
 			.compile("([+-]\\d{5})((\\s+[+-]\\d{5}){8}).*\\s+");
 
+	private final Logger log;
+
+	@Inject
+	NoiseDriverRunner(LoggerFactory loggerFactory) {
+		this.log = loggerFactory.create(NoiseDriverRunner.class);
+	}
+
 	public void readNoiseData(NoiseDriverImpl driver,
 			RssconDriver rssconDriver,
 			Iterable<NoiseDataListener> noiseDataListeners) throws IOException {
 		String line = readLine(rssconDriver);
+		log.readLine(line);
 		while (!LINE_REXEX.matcher(line).matches()) {
+			log.lineNotMatch(line);
 			line = readLine(rssconDriver);
+			log.readLine(line);
 		}
 
 		NoiseDataImpl noiseData = parseLine(line, driver);
