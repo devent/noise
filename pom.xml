@@ -55,6 +55,12 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+    <scm>
+        <connection>scm:git:ssh://gitpublic@globalscalingsoftware.com/noise.git </connection>
+        <developerConnection>scm:git:ssh://gitpublic@globalscalingsoftware.com/noise.git </developerConnection>
+        <url>scm:git:scm:git:ssh://gitpublic@globalscalingsoftware.com/noise.git </url>
+    </scm>
+    
 	<build>
 		<plugins>
 			<plugin>
